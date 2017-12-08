@@ -1,5 +1,5 @@
 
-from flask import Flask,render_template,request,make_response
+from flask import Flask,render_template,request,make_response,abort
 from urllib.request import urlopen
 import json
 import logging
@@ -36,7 +36,7 @@ def fetchAndDisplay():
 	for i in range(len(aList)):
 		authors.append(Author(aList[i]["name"],aList[i]["id"]))
 	
-	print("Staring Post count loop")
+	print("Starting Post count loop")
 	for author in authors:
 		for post in pList:
 			if post["userId"] == author.id:
@@ -48,15 +48,28 @@ def fetchAndDisplay():
 @app.route("/set")
 def settcookie():
     resp=make_response('setting cookie!')
-    resp.set_cookie('vinitha','20')
+    resp.set_cookie('name','vinitha')
+    resp.set_cookie('age','20')
     return resp
+
+
 @app.route("/get")
 def getcookie():
-    cookie=request.cookies.get('vinitha')
-    return "the cookie is  vinitha and  value is  %s" %cookie
-@app.route("/htl")
+    cookie1=request.cookies.get('name')
+    cookie2=request.cookies.get('age')
+    x= ("name - %s  & age - %s ") %(cookie1,cookie2)
+    
+    return x
+
+@app.route("/robot.txt")
+def deny():
+        abort(403)
+
+ 
+@app.route("/html")
 def pro():
-        return render_template("p2.html")
+        return render_template("college.html")
+
 
 @app.route('/send' ,  methods=['POST','GET'])
 def send():
