@@ -1,4 +1,5 @@
 
+
 from flask import Flask,render_template,request,make_response,abort
 from urllib.request import urlopen
 import json
@@ -14,7 +15,7 @@ class Author:
 		self.id = id
 		self.pCount = 0
 
-@app.route('/')
+@app.route('/')   
 def greet():
     return "Hello World - Vinitha shree"
 	
@@ -69,6 +70,10 @@ def deny():
 @app.route("/html")
 def pro():
         return render_template("college.html")
+
+@app.route("/form")
+def form():
+        return render_template("form.html")
 
 
 @app.route('/send' ,  methods=['POST','GET'])
