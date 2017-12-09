@@ -1,4 +1,4 @@
-
+# HPDF week-1 tasks
 
 from flask import Flask,render_template,request,make_response,abort
 from urllib.request import urlopen
@@ -15,11 +15,11 @@ class Author:
 		self.id = id
 		self.pCount = 0
 
-@app.route('/')   
+@app.route('/')                                                     #task1 - hello world
 def greet():
     return "Hello World - Vinitha shree"
 	
-@app.route('/authors')
+@app.route('/authors')                                              #task2 - displaying authors and their post count from json
 def fetchAndDisplay():
 	urlAuthors = "https://jsonplaceholder.typicode.com/users"
 	urlPosts = "https://jsonplaceholder.typicode.com/posts"
@@ -46,7 +46,7 @@ def fetchAndDisplay():
 	return render_template("authors.html",authors=authors)
 
 
-@app.route("/set")
+@app.route("/set")                                                  #task3 - setting cookie
 def settcookie():
     resp=make_response('setting cookie!')
     resp.set_cookie('name','vinitha')
@@ -54,7 +54,7 @@ def settcookie():
     return resp
 
 
-@app.route("/get")
+@app.route("/get")                                                  #task4 - retreiving cookie
 def getcookie():
     cookie1=request.cookies.get('name')
     cookie2=request.cookies.get('age')
@@ -62,16 +62,16 @@ def getcookie():
     
     return x
 
-@app.route("/robot.txt")
+@app.route("/robot.txt")                                            #task5 - denying request to robot.txt page
 def deny():
         abort(403)
 
  
-@app.route("/html")
+@app.route("/html")                                                 #task6 - rendering html file
 def pro():
         return render_template("college.html")
 
-@app.route("/form")
+@app.route("/form")                                                 #task7 - fething user input and displaying
 def form():
         return render_template("form.html")
 
@@ -87,3 +87,4 @@ def send():
 
 if __name__=='__main__':
 	app.run(debug=True, port=8080)
+
