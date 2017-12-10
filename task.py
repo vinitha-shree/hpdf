@@ -1,9 +1,13 @@
 # HPDF week-1 tasks
 
+
+
 from flask import Flask,render_template,request,make_response,abort
 from urllib.request import urlopen
 import json
+import logging
 
+#logging.basicConfig(filename='nam.log',level=logging.INFO  , format='%(asctime)s:%(levelname)s:%(message)s')
 
 app = Flask(__name__)
 
@@ -77,11 +81,14 @@ def form():
 @app.route('/send' ,  methods=['POST','GET'])
 def send():
         if  request.method ==  'POST':
+                result=[]
                 name=request.form['name']
-                return render_template('name.html' , name=name)
+                result.append(name)
+                result.append(request.form['city'])
+               # logging.info("name: %s" %name)
+                return render_template('name.html' , result=result)
         
         return  "no name"
 
 if __name__=='__main__':
 	app.run(debug=True, port=8080)
-
