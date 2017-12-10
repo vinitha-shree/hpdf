@@ -3,9 +3,7 @@
 from flask import Flask,render_template,request,make_response,abort
 from urllib.request import urlopen
 import json
-import logging
 
-logging.basicConfig(filename='nam.log',level=logging.INFO  , format='%(asctime)s:%(levelname)s:%(message)s')
 
 app = Flask(__name__)
 
@@ -80,7 +78,6 @@ def form():
 def send():
         if  request.method ==  'POST':
                 name=request.form['name']
-                logging.info("name: %s" %name)
                 return render_template('name.html' , name=name)
         
         return  "no name"
