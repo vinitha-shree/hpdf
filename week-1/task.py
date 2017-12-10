@@ -86,7 +86,7 @@ def send():
                # logging.info("name: %s" %name)
                 return render_template('name.html' , result=result)
         
-        return  "no name"
+        return  "none"
 
 if __name__=='__main__':
 	app.run(debug=True, port=8080)
