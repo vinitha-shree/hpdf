@@ -1,8 +1,10 @@
 # hpdf
 HASURA PRODUCT DEVELOPMENT FELLOWSHIP
+
 8-week internship program to build a complete app from scratch.
 
 Getting Started
+
 During this internship the responsibilities of developing front-end and back-end is assigned to the interns based on their preferences. As I preferred back-end (python-flask), I was allotted with it. As a warm up session for the program we were given seven tasks in the preferred domain to test our individual skills. Here are the list of those seven tasks:
 
 Week - 1
