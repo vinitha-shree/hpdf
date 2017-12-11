@@ -85,10 +85,8 @@ def send():
                 result.append(name)
                 result.append(request.form['city'])
                # logging.info("name: %s" %name)
-                return render_template('name.html' , result=result)
-        
+                return render_template('name.html' , result=result)        
         return  "no name"
 
 if __name__=='__main__':
 	app.run(debug=True, port=8080)
-
