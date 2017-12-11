@@ -1,3 +1,4 @@
+#week-1 tasks
 
 
 from flask import Flask,render_template,request,make_response,abort
@@ -48,7 +49,7 @@ def fetchAndDisplay():
 
 @app.route("/set")                                                  #task3 - setting cookie
 def settcookie():
-    resp=make_response('setting cookie!')
+    resp=make_response(render_template('readcookie.html'))
     resp.set_cookie('name','vinitha')
     resp.set_cookie('age','20')
     return resp
@@ -86,7 +87,8 @@ def send():
                # logging.info("name: %s" %name)
                 return render_template('name.html' , result=result)
         
-        return  "none"
+        return  "no name"
 
 if __name__=='__main__':
 	app.run(debug=True, port=8080)
+
