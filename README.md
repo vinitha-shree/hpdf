@@ -38,4 +38,6 @@ A new Python 3.6.2 (32-bit) Setup pop-up window will appear with a Setup Progres
 Python should now be installed.
 
 Flask set-up
-
+ 1. open command prompt and type
+   $ pip install Flask
+ 2. run the python file.
